@@ -1,7 +1,6 @@
 package com.example.dbpmkk.Controller;
 
-import com.example.dbpmkk.Entity.Global;
-import com.example.dbpmkk.Repository.EntityRepository;
+import com.example.dbpmkk.Domain.Repository.PolicyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,10 +9,10 @@ import java.util.List;
 @RequestMapping("/entities")
 public class EntityController {
     @Autowired
-    private EntityRepository entityRepository;
+    private PolicyRepository policyRepository;
 
     @GetMapping("/city/{global_City}")
     public List<Global> getEntitiesByGlobalCity(@PathVariable String global_City) {
-        return entityRepository.findByglobalCity(global_City);
+        return policyRepository.findByglobalCity(global_City);
     }
 }
