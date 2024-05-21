@@ -1,7 +1,6 @@
 package com.example.dbpmkk.Service;
 
-import com.example.dbpmkk.Entity.Global;
-import com.example.dbpmkk.Repository.EntityRepository;
+import com.example.dbpmkk.Domain.Repository.PolicyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,9 +9,9 @@ import java.util.List;
 @Service
 public class EntityService {
     @Autowired
-    private EntityRepository entityRepository;
+    private PolicyRepository policyRepository;
 
-    public List<Global> getEntityByglobalCityThan(String global_City){
-        return entityRepository.findByglobalCity(global_City);
+    public List<Global> getEntitiesByGlobalCity(String global_City){
+        return policyRepository.findByglobalCity(global_City);
     }
 }
