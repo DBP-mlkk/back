@@ -1,9 +1,13 @@
-package com.example.dbpmkk.Domain.Entity;
+package com.example.dbpmkk.Domain;
 
-import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
+@Component
 @Data
+@NoArgsConstructor @AllArgsConstructor
 public class PolicyEntity {
     private int BusinessNumber;
 
