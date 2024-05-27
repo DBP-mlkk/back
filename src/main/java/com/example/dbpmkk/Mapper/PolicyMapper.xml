@@ -1,0 +1,5 @@
+<mapper namespace="com.example.dbpmkk.Mapper.PolicyMapper">
+    <select id ="selectAllPolicy" resulType="com.example.dbpmkk.Domain.Entity.PolicyEntity">
+        SELECT * FROM support
+    </select>
+</mapper>
