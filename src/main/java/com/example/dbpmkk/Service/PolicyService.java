@@ -1,21 +1,24 @@
 package com.example.dbpmkk.Service;
 
-import com.example.dbpmkk.DAO.PolicyDao;
-import com.example.dbpmkk.Domain.PolicyEntity;
-import lombok.Setter;
 
+import com.example.dbpmkk.Domain.PolicyEntity;
+import com.example.dbpmkk.Repository.PolicyEntityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service @Setter
+@Service
 public class PolicyService {
-    @Autowired
-    private PolicyDao policyDao;
 
-    public List<PolicyEntity> list() {
-        return policyDao.list();
+   private final PolicyEntityRepository repository;
 
+   @Autowired
+   public PolicyService(PolicyEntityRepository repository) {
+       this.repository = repository;
+   }
+
+    public List<PolicyEntity> findAll() {
+        return repository.findAll();
     }
 }
