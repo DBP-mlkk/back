@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface PolicyEntityRepository extends JpaRepository<PolicyEntity, Integer> {
     List<PolicyEntity> findByBusinessSupportOrganizationName(String organizationName);
-}
+}//
 

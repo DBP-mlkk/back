@@ -28,7 +28,7 @@ public class PolicyController {
     @GetMapping("/search")
     public List<PolicyEntity> getPoliciesByOrganization(@RequestParam String organization) {
         return service.findByOrganizationName(organization);
-    }
+    }//
 }
 
 
