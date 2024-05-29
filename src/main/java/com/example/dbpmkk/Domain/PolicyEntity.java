@@ -1,14 +1,13 @@
 package com.example.dbpmkk.Domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Component;
+import jakarta.persistence.*;
 
-@Component
-@Data
-@NoArgsConstructor @AllArgsConstructor
+
+@Entity
+@Table(name="support")
 public class PolicyEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int BusinessNumber;
 
     private String BusinessName;
@@ -22,29 +21,29 @@ public class PolicyEntity {
     private String BusinessSupportBudget;
 
 
-//
-//    public int getNumber() {
-//        return BusinessNumber;
-//    }
-//
-//    public String getBusinessName() {
-//        return BusinessName;
-//    }
-//
-//    public String getBusinessSupportorganizationName() {
-//        return BusinessSupportorganizationName;
-//
-//    }
-//
-//    public String getBusinessClassification() {
-//        return BusinessClassification;
-//    }
-//
-//    public String getBusinessDetails() {
-//        return BusinessDetails;
-//    }
-//
-//    public String getBusinessSupportBudget() {
-//        return BusinessSupportBudget;
-//    }
+
+    public int getNumber() {
+        return BusinessNumber;
+    }
+
+    public String getBusinessName() {
+        return BusinessName;
+    }
+
+    public String getBusinessSupportorganizationName() {
+        return BusinessSupportorganizationName;
+
+    }
+
+    public String getBusinessClassification() {
+        return BusinessClassification;
+    }
+
+    public String getBusinessDetails() {
+        return BusinessDetails;
+    }
+
+    public String getBusinessSupportBudget() {
+        return BusinessSupportBudget;
+    }
 }
