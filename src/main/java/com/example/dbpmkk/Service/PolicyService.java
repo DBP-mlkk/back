@@ -21,4 +21,8 @@ public class PolicyService {
     public List<PolicyEntity> findAll() {
         return repository.findAll();
     }
+
+    public List<PolicyEntity> findByOrganizationName(String organizationName) {
+        return repository.findByBusinessSupportOrganizationName(organizationName);
+    }
 }
