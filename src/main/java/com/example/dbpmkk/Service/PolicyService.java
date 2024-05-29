@@ -22,7 +22,7 @@ public class PolicyService {
         return repository.findAll();
     }
 
-    public List<PolicyEntity> findByOrganizationName(String organizationName) {
-        return repository.findByBusinessSupportOrganizationName(organizationName);
+    public List<PolicyEntity> findByOrganization(String organization) {
+        return repository.findByBusinessSupportOrganizationName(organization);
     }
 }
