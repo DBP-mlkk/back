@@ -26,8 +26,22 @@ public class PolicyController {
     }
 
     @GetMapping("/search")
+    public List<PolicyEntity> getPoliciesByOrganizationAndBudgetRange(
+            @RequestParam("organization") String organization,
+            @RequestParam("minBudget") Long minBudget,
+            @RequestParam("maxBudget") Long maxBudget) {
+        return service.findByOrganizationAndBudgetRange(organization, minBudget, maxBudget);
+    }
+
+    @GetMapping("/searchorg")
     public List<PolicyEntity> getPoliciesByOrganization(@RequestParam("organization") String organization) {
         return service.findByOrganization(organization);
+    }
+    @GetMapping("/searchbud")
+    public List<PolicyEntity> getPoliciesByBudgetRange(
+            @RequestParam("minBudget") Long minBudget,
+            @RequestParam("maxBudget") Long maxBudget) {
+        return service.findByBudgetRange(minBudget, maxBudget);
     }
 }
 

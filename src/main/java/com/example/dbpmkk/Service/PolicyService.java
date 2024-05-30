@@ -25,4 +25,13 @@ public class PolicyService {
     public List<PolicyEntity> findByOrganization(String organization) {
         return repository.findByBusinessSupportOrganizationName(organization);
     }
+
+    public List<PolicyEntity> findByBudgetRange(Long minBudget, Long maxBudget) {
+        return repository.findByBudgetRange(minBudget, maxBudget);
+    }
+
+    public List<PolicyEntity> findByOrganizationAndBudgetRange(String organization, Long minBudget, Long maxBudget) {
+        return repository.findByOrganizationAndBudgetRange(organization, minBudget, maxBudget);
+    }
+
 }
