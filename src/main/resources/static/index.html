@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공공데이터 포탈_MainPage</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="search-container">
+        <input type="text" class="search-box" id="searchBox" placeholder="중소기업지원사업을 입력하세요." onfocus="this.placeholder=''" onblur="this.placeholder='중소기업지원사업을 입력하세요.'" onkeydown="handleKeyDown(event)">
+        <span class="search-icon" onclick="fetchPolicies()">🔍</span>
+    </div>
+    <h2>Selected Organization Policies:</h2>
+    <div id="policyResults"></div>
+
+    <div class="realtime-container">
+        <select id="realtimeSelect">
+            <option value="">실시간 검색 순위</option>
+            <!-- 실시간 순위 데이터는 JavaScript로 추가 -->
+        </select>
+    </div>
+    <div class="select-container">
+        <div class="refresh-container">
+            <span class="refresh-icon" onclick="resetFilters()">🔄</span>
+            <span class="refresh-text">새로고침</span>
+        </div>
+        <select id="locationSelect">
+            <option value="">위치</option>
+            <option value="서울">서울</option>
+            <option value="부산">부산</option>
+            <option value="대구">대구</option>
+            <!-- 옵션 추가 가능 -->
+        </select>
+        <select id="amountSelect1">
+            <option value="">금액</option>
+            <!-- 옵션 추가 가능 -->
+        </select>
+        <span class="tilde">~</span>
+        <select id="amountSelect2">
+            <option value="">금액</option>
+            <!-- 옵션 추가 가능 -->
+        </select>
+    </div>
+</div>
+
+
+<script>
+    function fetchPolicies() {
+        const selectBox = document.getElementById("locationSelect");
+        const selectedOrganization = selectBox.value;
+
+        // AJAX 요청 보내기
+        fetch(`/entities/searchorg?organization=${selectedOrganization}`)
+            .then(response => response.json())
+            .then(data => {
+                displayPolicies(data);
+            })
+            .catch(error => console.error('Error fetching policies:', error));
+    }
+
+    function displayPolicies(policies) {
+        const resultsDiv = document.getElementById("policyResults");
+        resultsDiv.innerHTML = ""; // 기존 내용을 지웁니다
+
+        if (policies.length === 0) {
+            resultsDiv.innerHTML = "<p>No policies found for the selected organization.</p>";
+            return;
+        }
+
+        const ul = document.createElement("ul");
+        policies.forEach(policy => {
+            const li = document.createElement("li");
+            li.textContent = `Name: ${policy.businessName}, Budget: ${policy.businessSupportBudget}, Organization: ${policy.businessSupportOrganizationName}`;
+            ul.appendChild(li);
+        });
+        resultsDiv.appendChild(ul);
+    }
+</script>
+
+</body>
+</html>
