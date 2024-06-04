@@ -34,8 +34,11 @@
 
 ### 🍧팀원 소개
 [강민지](https://github.com/alswl0912)
+
 [강형진](https://github.com/rapidswap)
+
 [문경만](https://github.com/MunKyungMan)
+
 [임한규](https://github.com/ekrndjaak)
 
 ### 🍧활용 데이터 정보
