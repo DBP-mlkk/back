@@ -1,7 +1,7 @@
 # 관세청 공공데이터 활용･분석
 
 ![KakaoTalk_20240604_170937622-horz](https://github.com/DBP-mlkk/back/assets/123048828/77d99a81-de89-4d98-a43d-a6afe4bd7804)
-▲메인페이지ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ▲검색페이지
+▲메인페이지ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ▲검색페이지
 
 ### 🍧주제
 중소기업 해외 진출 지원 사업을 통한 공공데이터 분석, 교육 빛 지원사업 개선 방안 제안
@@ -25,21 +25,11 @@
 
 2️⃣ 차별화된 강점으로 세계시장에서 경쟁우위 확보가 되고 지속가능한 성장 동력을 확보할 수 있음
 
-3️⃣ 
+3️⃣ 중소기업들이 역량 강화를 위한 자료를 찾을 때 드는 수고와 비용이 줄어들음
 
 4️⃣
 
 5️⃣ 
-
-
-### 🍧팀원 소개
-[강민지](https://github.com/alswl0912)
-
-[강형진](https://github.com/rapidswap)
-
-[문경만](https://github.com/MunKyungMan)
-
-[임한규](https://github.com/ekrndjaak)
 
 ### 🍧활용 데이터 정보
 관세청 공공데이터
@@ -77,3 +67,13 @@ Production
 
 
 ### 🍧ERD
+
+
+### 🍧팀원 소개
+[강민지](https://github.com/alswl0912)
+
+[강형진](https://github.com/rapidswap)
+
+[문경만](https://github.com/MunKyungMan)
+
+[임한규](https://github.com/ekrndjaak)
