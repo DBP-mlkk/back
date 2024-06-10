@@ -4,7 +4,6 @@ package com.example.dbpmkk.Service;
 import com.example.dbpmkk.Domain.PolicyEntity;
 import com.example.dbpmkk.Repository.PolicyEntityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,10 +17,10 @@ public class PolicyService {
    public PolicyService(PolicyEntityRepository repository) {
        this.repository = repository;
    }
-
     public List<PolicyEntity> findAll() {
         return repository.findAll();
     }
+
     public List<PolicyEntity> findByOrganization(String organization) {
         return repository.findByBusinessSupportOrganizationName(organization);
     }
@@ -34,4 +33,19 @@ public class PolicyService {
         return repository.findByOrganizationAndBudgetRange(organization, minBudget, maxBudget);
     }
 
+    public List<PolicyEntity> findByBusinessName(String businessName) {
+        return repository.findByBusinessName(businessName);
+    }
+
+    public List<PolicyEntity> findByBusinessNameAndOrganization(String businessName, String organization) {
+        return repository.findByBusinessNameAndOrganization(businessName, organization);
+    }
+
+    public List<PolicyEntity> findByBusinessNameAndBudgetRange(String businessName, Long minBudget, Long maxBudget) {
+        return repository.findByBusinessNameAndBudgetRange(businessName, minBudget, maxBudget);
+    }
+
+    public List<PolicyEntity> findByBusinessNameAndOrganizationAndBudgetRange(String businessName, String organization, Long minBudget, Long maxBudget) {
+        return repository.findByBusinessNameAndOrganizationAndBudgetRange(businessName, organization, minBudget, maxBudget);
+    }
 }
