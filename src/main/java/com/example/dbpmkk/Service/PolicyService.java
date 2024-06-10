@@ -4,6 +4,7 @@ package com.example.dbpmkk.Service;
 import com.example.dbpmkk.Domain.PolicyEntity;
 import com.example.dbpmkk.Repository.PolicyEntityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,7 +22,6 @@ public class PolicyService {
     public List<PolicyEntity> findAll() {
         return repository.findAll();
     }
-
     public List<PolicyEntity> findByOrganization(String organization) {
         return repository.findByBusinessSupportOrganizationName(organization);
     }

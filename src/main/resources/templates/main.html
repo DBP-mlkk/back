@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공공데이터 포탈_MainPage</title>
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+</head>
+<body>
+  
+    <div class="container">
+        <!-- 로그인, 회원가입 버튼 추가 -->
+        <div class="header-buttons">
+            <button class="login-button" onclick="goToLogin()">Login</button>
+            <button class="register-button">회원가입</button>
+        </div>
+        <form th:action="@{/search}" method="get">
+        <div class="search-container">
+            <input type="text" class="search-box" id="searchBox" placeholder="중소기업지원사업을 입력하세요." onfocus="this.placeholder=''" onblur="this.placeholder='중소기업지원사업을 입력하세요.'" onkeydown="handleKeyDown(event)">
+            <button type="submit">🔍</button>
+        </div>
+        <div class="realtime-container">
+            <select id="realtimeSelect">
+                <option value="">실시간 검색 순위</option>
+                <!-- 실시간 순위 데이터는 JavaScript로 추가 -->
+            </select>
+        </div>
+        <div class="select-container">
+            <div class="refresh-container">
+                <span class="refresh-icon" onclick="resetFilters()">🔄</span>
+                <span class="refresh-text">새로고침</span>
+            </div>
+
+                <label for="organization">Organization:</label>
+                <select id="organization" name = "organization">
+                    <option value="서울">서울</option>
+                    <option value="부산">부산</option>
+                    <option value="울산">울산</option>
+                    <option value="">없음</option>
+                    <!-- Add more options as needed -->
+                </select>
+                <br>
+                <label for="minBudget">Min Budget:</label>
+                <input type="text" id="minBudget" name="minBudget">
+                <br>
+                <label for="maxBudget">Max Budget:</label>
+                <input type="text" id="maxBudget" name="maxBudget">
+                <br>
+
+            </form>
+        </div>
+    </div>
+
+    <script src="../../../../../../Downloads/front-main/main.js"></script>
+</body>
+</html>

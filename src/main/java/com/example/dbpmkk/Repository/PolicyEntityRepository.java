@@ -2,6 +2,8 @@ package com.example.dbpmkk.Repository;
 
 import com.example.dbpmkk.Domain.PolicyEntity;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -20,5 +22,6 @@ public interface PolicyEntityRepository extends JpaRepository<PolicyEntity, Inte
     List<PolicyEntity> findByBudgetRange(
             @Param("minBudget") Long minBudget,
             @Param("maxBudget") Long maxBudget);
+
 }
 
