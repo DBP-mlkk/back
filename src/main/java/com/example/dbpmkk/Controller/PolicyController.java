@@ -1,5 +1,8 @@
 package com.example.dbpmkk.Controller;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import com.example.dbpmkk.Domain.PolicyEntity;
@@ -30,14 +33,14 @@ public class PolicyController {
     public String index(Model model) {
         List<PolicyEntity> policies = service.findAll();
         model.addAttribute("policies", policies);
-        return "index";
+        return "main";
     }
 
     @GetMapping("/searchByOrganization")
     public String getPoliciesByOrganizations(@RequestParam("organization") String organization, Model model) {
         List<PolicyEntity> policies = service.findByOrganization(organization);
         model.addAttribute("policies", policies);
-        return "test";
+        return "subpage";
     }
 
     @GetMapping("/search")
@@ -67,7 +70,7 @@ public class PolicyController {
             model.addAttribute("policies", policies);
         }
 
-        return "test";
+        return "subpage";
     }
 
     @GetMapping("/searchbud")
@@ -76,8 +79,9 @@ public class PolicyController {
             @RequestParam("maxBudget") Long maxBudget) {
         List<PolicyEntity> policies = service.findByBudgetRange(minBudget,maxBudget);
         model.addAttribute("policies", policies);
-        return "test";
+        return "subpage";
     }
+
 
 }
 

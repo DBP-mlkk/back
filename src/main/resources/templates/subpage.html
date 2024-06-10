@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>검색 페이지</title>
+    <link th:href="@{/css/subpage.css}" rel="stylesheet" />
+</head>
+<body>
+<div class="upper-box">
+    <div class="header-buttons">
+        <button class="login-button" onclick="goToLogin()">Login</button>
+        <button class="register-button" onclick="goToSignup()">회원가입</button>
+    </div>
+</div>
+
+<div class="main-wrapper">
+    <div class="search-container">
+        <input type="text" id="search-box" value="중소기업지원사업을 입력하세요." onfocus="clearPlaceholder()" onblur="setPlaceholder()" onkeydown="handleKeyPress(event)">
+        <button id="search-button" onclick="search()">🔍</button>
+    </div>
+
+    <div class="realtime-container">
+        <label for="realtime-rank">실시간 순위:</label>
+        <select id="realtime-rank" onchange="updateRanking()">
+            <option value="1">1위</option>
+            <option value="2">2위</option>
+            <option value="3">3위</option>
+            <option value="4">4위</option>
+            <option value="5">5위</option>
+        </select>
+        <ul id="ranking-list">
+        </ul>
+    </div>
+
+    <div class="container">
+        <div id="refresh-container"><span class="no-click">새로고침</span> <span id="refresh-icon" onclick="refresh()">🔄</span></div>
+        <div class="location-container">
+            <label for="location">위치:</label>
+            <select id="location">
+            </select>
+        </div>
+        <div class="amount-container">
+            <label for="amount1">금액:</label>
+            <input type="text" id="amount1">
+        </div>
+        <div class="tilde">~</div>
+        <div class="amount-container">
+            <label for="amount2">금액:</label>
+            <input type="text" id="amount2">
+        </div>
+    </div>
+</div>
+
+<div class="page-divider"></div>
+<div id="search-text"></div>
+
+<div class="board-container" id="board-container">
+    <!-- 테스트 게시물 추가 -->
+    <div th:each="policy : ${policies}" class="post">
+        <p class="post-title" th:text="${policy.businessName}"></p>
+        <p class="post-location" th:text="'위치: ' + ${policy.businessSupportOrganizationName}"></p>
+        <p class="post-amount" th:text="'금액: ' + ${policy.businessSupportBudget}"></p>
+    </div>
+    <!-- 나머지 테스트 게시물도 유사하게 추가 -->
+</div>
+
+<div class="lower-box"></div>
+
+<div class="pagination-container">
+    <span id="prev-page" onclick="prevPage()">&laquo;</span>
+    <div id="pagination-numbers"></div>
+    <span id="next-page" onclick="nextPage()">&raquo;</span>
+</div>
+
+<script src="subpage.js"></script>
+</body>
+</html>
