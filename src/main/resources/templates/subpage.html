@@ -13,41 +13,37 @@
         <button class="register-button" onclick="goToSignup()">회원가입</button>
     </div>
 </div>
-
+<form th:action="@{/search}" method="get">
 <div class="main-wrapper">
     <div class="search-container">
-        <input type="text" id="search-box" value="중소기업지원사업을 입력하세요." onfocus="clearPlaceholder()" onblur="setPlaceholder()" onkeydown="handleKeyPress(event)">
-        <button id="search-button" onclick="search()">🔍</button>
+        <input type="text" name="businessName" class="search-box" id="searchBox" placeholder="중소기업지원사업을 입력하세요."
+               onfocus="this.placeholder=''" onblur="this.placeholder='중소기업지원사업을 입력하세요.'"
+               onkeydown="handleKeyDown(event)">
+        <button type="submit">🔍</button>
     </div>
 
-    <div class="realtime-container">
-        <label for="realtime-rank">실시간 순위:</label>
-        <select id="realtime-rank" onchange="updateRanking()">
-            <option value="1">1위</option>
-            <option value="2">2위</option>
-            <option value="3">3위</option>
-            <option value="4">4위</option>
-            <option value="5">5위</option>
-        </select>
-        <ul id="ranking-list">
-        </ul>
-    </div>
+
 
     <div class="container">
         <div id="refresh-container"><span class="no-click">새로고침</span> <span id="refresh-icon" onclick="refresh()">🔄</span></div>
         <div class="location-container">
-            <label for="location">위치:</label>
-            <select id="location">
+            <label for="organization">Organization:</label>
+            <select id="organization" name = "organization">
+                <option value="서울">서울</option>
+                <option value="부산">부산</option>
+                <option value="울산">울산</option>
+                <option value="">없음</option>
+                <!-- Add more options as needed -->
             </select>
         </div>
         <div class="amount-container">
-            <label for="amount1">금액:</label>
-            <input type="text" id="amount1">
+            <label for="minBudget">Min Budget:</label>
+            <input type="text" id="minBudget" name="minBudget">
         </div>
         <div class="tilde">~</div>
         <div class="amount-container">
-            <label for="amount2">금액:</label>
-            <input type="text" id="amount2">
+            <label for="maxBudget">Max Budget:</label>
+            <input type="text" id="maxBudget" name="maxBudget">
         </div>
     </div>
 </div>

@@ -45,31 +45,50 @@ public class PolicyController {
 
     @GetMapping("/search")
     public String getPoliciesByOrganizationAndBudgetRange(
+            @RequestParam(name = "businessName", required = false) String businessName,
             @RequestParam(name = "organization", required = false) String organization,
             @RequestParam(name = "minBudget", required = false) Long minBudget,
             @RequestParam(name = "maxBudget", required = false) Long maxBudget,
             Model model) {
-        if (minBudget != null && maxBudget != null) {
+
+        List<PolicyEntity> policies;
+
+        if (businessName != null && !businessName.isBlank()) {
+            // 비즈니스 이름이 입력된 경우
+            if (minBudget != null && maxBudget != null) {
+                // 예산이 입력된 경우
+                if (organization == null || organization.isBlank()) {
+                    // 조직이 선택되지 않은 경우
+                    policies = service.findByBusinessNameAndBudgetRange(businessName, minBudget, maxBudget);
+                } else {
+                    // 조직이 선택된 경우
+                    policies = service.findByBusinessNameAndOrganizationAndBudgetRange(businessName, organization, minBudget, maxBudget);
+                }
+            } else if (organization != null && !organization.isBlank()) {
+                // 조직만 입력된 경우
+                policies = service.findByBusinessNameAndOrganization(businessName, organization);
+            } else {
+                // 파라미터가 없는 경우, 기본 동작 수행
+                policies = service.findByBusinessName(businessName);
+            }
+        } else if (minBudget != null && maxBudget != null) {
             // 예산만 입력된 경우
             if (organization == null || organization.isBlank()) {
                 // 조직이 선택되지 않은 경우
-                List<PolicyEntity> policies = service.findByBudgetRange(minBudget, maxBudget);
-                model.addAttribute("policies", policies);
+                policies = service.findByBudgetRange(minBudget, maxBudget);
             } else {
                 // 조직이 선택된 경우
-                List<PolicyEntity> policies = service.findByOrganizationAndBudgetRange(organization, minBudget, maxBudget);
-                model.addAttribute("policies", policies);
+                policies = service.findByOrganizationAndBudgetRange(organization, minBudget, maxBudget);
             }
         } else if (organization != null && !organization.isBlank()) {
             // 조직만 입력된 경우
-            List<PolicyEntity> policies = service.findByOrganization(organization);
-            model.addAttribute("policies", policies);
+            policies = service.findByOrganization(organization);
         } else {
             // 파라미터가 없는 경우, 기본 동작 수행
-            List<PolicyEntity> policies = service.findAll();
-            model.addAttribute("policies", policies);
+            policies = service.findAll();
         }
 
+        model.addAttribute("policies", policies);
         return "subpage";
     }
 
