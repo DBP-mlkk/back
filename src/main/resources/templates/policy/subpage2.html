@@ -71,10 +71,9 @@
 <!-- 게시판 -->
 <div class="board-container" id="board-container">
     <!-- 게시물이 여기에 추가될 것입니다 -->
-    <div th:each="policy : ${policies}" class="post">
-        <p class="post-title" th:text="${policy.businessName}"></p>
-        <p class="post-location" th:text="'위치: ' + ${policy.businessSupportOrganizationName}"></p>
-        <p class="post-amount" th:text="'금액: ' + ${policy.businessSupportBudget}"></p>
+    <div th:each="course : ${courses}" class="post">
+        <p class="post-title" th:text="${course.courseNuber}"></p>
+        <a th:href ="${course.courseLink}" class="post-location" th:text="'강의 내용: ' + ${course.courseName}"></a>
     </div>
 </div>
 
