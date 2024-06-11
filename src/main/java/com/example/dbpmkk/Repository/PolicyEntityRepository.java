@@ -1,9 +1,10 @@
 package com.example.dbpmkk.Repository;
 
 import com.example.dbpmkk.Domain.PolicyEntity;
-import org.apache.ibatis.annotations.Param;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -27,7 +28,7 @@ public interface PolicyEntityRepository extends JpaRepository<PolicyEntity, Inte
     @Query("SELECT p FROM PolicyEntity p WHERE p.businessName LIKE %:businessName%")
     List<PolicyEntity> findByBusinessName(@Param("businessName") String businessName);
 
-    @Query(value = "SELECT * FROM support WHERE Business_name = :businessName AND Business_support_organization_name LIKE %:organization%", nativeQuery = true)
+    @Query(value = "SELECT * FROM support WHERE Business_name LIKE %:businessName% AND Business_support_organization_name LIKE %:organization%", nativeQuery = true)
     List<PolicyEntity> findByBusinessNameAndOrganization(
             @Param("businessName") String businessName,
             @Param("organization") String organization);
