@@ -27,7 +27,7 @@ public interface PolicyEntityRepository extends JpaRepository<PolicyEntity, Inte
     @Query("SELECT p FROM PolicyEntity p WHERE p.businessName LIKE %:businessName%")
     List<PolicyEntity> findByBusinessName(@Param("businessName") String businessName);
 
-    @Query(value = "SELECT * FROM support WHERE Business_name = :businessName AND Business_support_organization_name LIKE %:organization%", nativeQuery = true)
+    @Query(value = "SELECT * FROM support WHERE Business_name LIKE %:businessName% AND Business_support_organization_name LIKE %:organization%", nativeQuery = true)
     List<PolicyEntity> findByBusinessNameAndOrganization(
             @Param("businessName") String businessName,
             @Param("organization") String organization);

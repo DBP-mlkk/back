@@ -24,7 +24,7 @@ body {
     justify-content: center; /* 수평 가운데 정렬 */
     align-items: center; /* 수직 가운데 정렬 */
     margin-bottom: 20px; /* 하단 여백 설정 */
-} 
+}
 
 .search-box {
     width: 100%; /* 너비를 100%로 설정 */

@@ -7,14 +7,14 @@
     <link th:href="@{/css/main.css}" rel="stylesheet" />
 </head>
 <body>
-  
-    <div class="container">
-        <!-- 로그인, 회원가입 버튼 추가 -->
-        <div class="header-buttons">
-            <button class="login-button" onclick="goToLogin()">Login</button>
-            <button class="register-button">회원가입</button>
-        </div>
-        <form th:action="@{/search}" method="get">
+
+<div class="container">
+    <!-- 로그인, 회원가입 버튼 추가 -->
+    <div class="header-buttons">
+        <button class="login-button" onclick="goToLogin()">Login</button>
+        <button class="register-button">회원가입</button>
+    </div>
+    <form th:action="@{/search}" method="get">
         <div class="search-container">
             <input type="text" name="businessName" class="search-box" id="searchBox" placeholder="중소기업지원사업을 입력하세요."
                    onfocus="this.placeholder=''" onblur="this.placeholder='중소기업지원사업을 입력하세요.'"
@@ -32,26 +32,24 @@
                 <span class="refresh-icon" onclick="resetFilters()">🔄</span>
                 <span class="refresh-text">새로고침</span>
             </div>
-
-                <label for="organization">Organization:</label>
-                <select id="organization" name = "organization">
-                    <option value="서울">서울</option>
-                    <option value="부산">부산</option>
-                    <option value="울산">울산</option>
-                    <option value="">없음</option>
-                    <!-- Add more options as needed -->
-                </select>
-                <br>
-                <label for="minBudget">Min Budget:</label>
-                <input type="text" id="minBudget" name="minBudget">
-                <br>
-                <label for="maxBudget">Max Budget:</label>
-                <input type="text" id="maxBudget" name="maxBudget">
-                <br>
-            </form>
+            <label for="organization"></label>
+            <select id="organization" name = "organization">
+                <option value="서울">서울</option>
+                <option value="부산">부산</option>
+                <option value="울산">울산</option>
+                <option value="">없음</option>
+                <!-- 옵션 추가 가능 -->
+            </select>
+            <label for="minBudget"></label>
+            <input type="text" id="minBudget" name="minBudget">
+            <span class="tilde">~</span>
+            <label for="maxBudget"></label>
+            <input type="text" id="maxBudget" name="maxBudget">
         </div>
-    </div>
+    </form>
+    <a th:href="@{/courses}">next</a>
+</div>
 
-    <script src="../../../../../../Downloads/front-main/main.js"></script>
+<script src="/static/js/main.js"></script>
 </body>
 </html>
