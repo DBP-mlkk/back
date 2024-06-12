@@ -1,9 +1,10 @@
 package com.example.dbpmkk.Repository;
 
 import com.example.dbpmkk.Domain.PolicyEntity;
-import org.apache.ibatis.annotations.Param;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
