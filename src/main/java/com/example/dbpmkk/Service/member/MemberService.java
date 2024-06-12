@@ -23,4 +23,19 @@ public class MemberService {
 
     }
 
+    public MemberDTO login(MemberDTO memberDTO){
+        Optional<MemberEntity> byMemberEmail = memberRepository.findByMemberEmail(memberDTO.getMemberEmail());
+        if(byMemberEmail.isPresent()){
+            MemberEntity memberEntity = byMemberEmail.get();
+            if(memberEntity.getMemberPassword().equals(memberDTO.getMemberPassword())){
+                MemberDTO dto = MemberDTO.toMemberDTO(memberEntity);
+                return dto;
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
+    }
+
 }
