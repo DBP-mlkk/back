@@ -1,18 +1,15 @@
 package com.example.dbpmkk.Controller.member;
 
 import com.example.dbpmkk.DTO.MemberDTO;
+import com.example.dbpmkk.Domain.member.MemberEntity;
 import com.example.dbpmkk.Service.member.MemberService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.annotations.Comment;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.lang.reflect.Member;
 
 @Controller
 @RequiredArgsConstructor
@@ -27,7 +24,8 @@ public class MemberController {
 
 
     @GetMapping("/member/save")
-    public String saveForm() {
+    public String saveForm(@ModelAttribute MemberEntity member, Model model) {
+        model.addAttribute("member",member);
         return "members/createMemberForm";
     }
 

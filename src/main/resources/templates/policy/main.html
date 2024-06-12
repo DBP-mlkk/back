@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>공공데이터 포탈_MainPage</title>
     <link th:href="@{/css/main.css}" rel="stylesheet" />
 </head>
 <body>
-session 값 확인 : <p th:text="${session.loginEmail}"></p>
+
 <div class="container">
     <!-- 로그인, 회원가입 버튼 추가 -->
     <div class="header-buttons">
-        <button class="login-button" onclick="goToLogin()">Login</button>
-        <button class="register-button">회원가입</button>
+        <p th:text="${session.loginEmail}"></p>
     </div>
     <form th:action="@{/search}" method="get">
         <div class="search-container">
