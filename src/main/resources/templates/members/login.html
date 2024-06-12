@@ -7,22 +7,10 @@
     <link th:href="@{/css/login.css}" rel="stylesheet" />
 </head>
 <body>
-<div class="login-wrapper">
-    <h2>로그인</h2>
-    <form id="login-form">
-        <input type="text" id="username" placeholder="아이디">
-        <input type="password" id="password" placeholder="비밀번호">
-        <form class="checkbox-wrapper" method="post">
-            <input type="checkbox" id="remember" name="remember">
-            <label for="remember" class="checkbox-icon"></label>
-            <label for="remember" class="checkbox-text">로그인 정보 저장</label>
-        </form>
-        <input type="submit" value="로그인" class="btn" id="loginButton" href="/members/go">
-    <a href="/members/go">넘어가기</a>
-    <a a href="/member/save">회원가입</a>
-    </form>
-</div>
-
-<script src="login.js"></script>
+<form action="/member/login" method="post">
+    이메일 : <input type="text" name="memberEmail"> <br>
+    비밀번호 : <input type="password" name="memberPassword"> <br>
+    <input type="submit" value="로그인">
+</form>
 </body>
 </html>
