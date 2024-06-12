@@ -34,7 +34,7 @@ public class MemberController {
         System.out.println("MemberController.save");
         System.out.println("memberDTO = " + memberDTO);
         memberService.save(memberDTO);
-        return "members/createMemberForm";
+        return "members/login";
     }
 
     @GetMapping("/member/login")
