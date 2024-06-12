@@ -1,10 +1,8 @@
-package com.example.dbpmkk.Service;
+package com.example.dbpmkk.Service.educate;
 
 
-import com.example.dbpmkk.Domain.EducateEntity;
-import com.example.dbpmkk.Domain.PolicyEntity;
-import com.example.dbpmkk.Repository.EducateEntityRepository;
-import com.example.dbpmkk.Repository.PolicyEntityRepository;
+import com.example.dbpmkk.Domain.educate.EducateEntity;
+import com.example.dbpmkk.Repository.educate.EducateEntityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

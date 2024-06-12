@@ -1,6 +1,6 @@
-package com.example.dbpmkk.Repository;
+package com.example.dbpmkk.Repository.policy;
 
-import com.example.dbpmkk.Domain.PolicyEntity;
+import com.example.dbpmkk.Domain.policy.PolicyEntity;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

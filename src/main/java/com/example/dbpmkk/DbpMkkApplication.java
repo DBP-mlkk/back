@@ -10,8 +10,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories(basePackages = "com.example.dbpmkk.Repository")
 @EntityScan(basePackages = "com.example.dbpmkk.Domain")
 public class DbpMkkApplication {
-
     public static void main(String[] args) {
+
         SpringApplication.run(DbpMkkApplication.class, args);
     }
 
