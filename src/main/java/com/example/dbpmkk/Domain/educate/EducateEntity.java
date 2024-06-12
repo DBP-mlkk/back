@@ -1,4 +1,4 @@
-package com.example.dbpmkk.Domain;
+package com.example.dbpmkk.Domain.educate;
 
 import jakarta.persistence.*;
 import lombok.Getter;

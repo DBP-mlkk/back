@@ -1,6 +1,6 @@
-package com.example.dbpmkk.Repository;
+package com.example.dbpmkk.Repository.educate;
 
-import com.example.dbpmkk.Domain.EducateEntity;
+import com.example.dbpmkk.Domain.educate.EducateEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

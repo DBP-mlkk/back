@@ -1,4 +1,4 @@
-package com.example.dbpmkk.Domain;
+package com.example.dbpmkk.Domain.policy;
 
 import jakarta.persistence.*;
 

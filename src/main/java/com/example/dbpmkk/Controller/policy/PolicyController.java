@@ -1,9 +1,9 @@
-package com.example.dbpmkk.Controller;
+package com.example.dbpmkk.Controller.policy;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import com.example.dbpmkk.Domain.PolicyEntity;
-import com.example.dbpmkk.Service.PolicyService;
+import com.example.dbpmkk.Domain.policy.PolicyEntity;
+import com.example.dbpmkk.Service.policy.PolicyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,12 +24,12 @@ public class PolicyController {
         return service.findAll();
     }
 
-//    @GetMapping("/")
-//    public String index(Model model) {
-//        List<PolicyEntity> policies = service.findAll();
-//        model.addAttribute("policies", policies);
-//        return "main";
-//    }
+    @GetMapping("/members/go")
+    public String index(Model model) {
+        List<PolicyEntity> policies = service.findAll();
+        model.addAttribute("policies", policies);
+        return "policy/main";
+    }
 
     @GetMapping("/searchByOrganization")
     public String getPoliciesByOrganizations(@RequestParam("organization") String organization, Model model) {

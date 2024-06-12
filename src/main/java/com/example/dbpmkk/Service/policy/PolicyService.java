@@ -1,8 +1,8 @@
-package com.example.dbpmkk.Service;
+package com.example.dbpmkk.Service.policy;
 
 
-import com.example.dbpmkk.Domain.PolicyEntity;
-import com.example.dbpmkk.Repository.PolicyEntityRepository;
+import com.example.dbpmkk.Domain.policy.PolicyEntity;
+import com.example.dbpmkk.Repository.policy.PolicyEntityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
